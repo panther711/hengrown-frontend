@@ -42,8 +42,8 @@ const Signup: React.FC = () => {
                     </Row>
                     <Row className="justify-content-center">
                         <Col md={8} sm={10} xs={10}>
-                            <Form.Label className='hengrown-login-header login'>Sign <p className='painted'>Up</p></Form.Label>
-                            <p className='hengrown-subtitle-label login'>
+                            <Form.Label className='hengrown-signup-header signup'>Sign <p className='painted'>Up</p></Form.Label>
+                            <p className='hengrown-subtitle-label signup'>
                                 Already have an account? <Nav.Link href="#" className='painted'>Log in.</Nav.Link>
                             </p>
                         </Col>
@@ -51,25 +51,25 @@ const Signup: React.FC = () => {
                     <Row className="justify-content-center">
                         <Col md={8} sm={10} xs={10}>
                             <Form.Group controlId="formBasicUsername">
-                                <Form.Label className='hengrown-label login'>Username</Form.Label>
-                                <Form.Control className='hengrown-input login' type="text" value={username} onChange={event => setUsername(event.target.value)} />
+                                <Form.Label className='hengrown-label signup'>Username</Form.Label>
+                                <Form.Control className='hengrown-input signup' type="text" value={username} onChange={event => setUsername(event.target.value)} />
                             </Form.Group>
                         </Col>
                     </Row>
                     <Row className="justify-content-center">
                         <Col md={8} sm={10} xs={10}>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label className='hengrown-label login'>Email</Form.Label>
-                                <Form.Control className='hengrown-input login' type="email" value={email} onChange={event => setEmail(event.target.value)} />
+                                <Form.Label className='hengrown-label signup'>Email</Form.Label>
+                                <Form.Control className='hengrown-input signup' type="email" value={email} onChange={event => setEmail(event.target.value)} />
                             </Form.Group>
                         </Col>
                     </Row>
                     <Row className="justify-content-center">
                         <Col md={8} sm={10} xs={10} className='justify-content-start'>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Label className='hengrown-label login'>Password</Form.Label>
-                                <Form.Control className='hengrown-input login' type={showPassword ? "text" : "password"} value={password} onChange={event => setPassword(event.target.value)} />
-                                <Form.Text className='hengrown-passwd-toggle-btn login' onClick={handleShowPasswordClick}>
+                                <Form.Label className='hengrown-label signup'>Password</Form.Label>
+                                <Form.Control className='hengrown-input signup' type={showPassword ? "text" : "password"} value={password} onChange={event => setPassword(event.target.value)} />
+                                <Form.Text className='hengrown-passwd-toggle-btn signup' onClick={handleShowPasswordClick}>
                                     {showPassword? 'hide' : 'show'}
                                 </Form.Text>
                             </Form.Group>
@@ -78,11 +78,11 @@ const Signup: React.FC = () => {
                     <Row className="justify-content-center">
                         <Col md={8} sm={10} xs={10} className='justify-content-start'>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Check className='hengrown-check login' color='success'
+                                <Form.Check className='hengrown-check signup' color='success'
                                     type="checkbox"
                                     value={agree}
                                     onChange={event => setAgree(event.target.value)}
-                                    label={<p className='hengrown-check-label login'>
+                                    label={<p className='hengrown-check-label signup'>
                                         I agree to Platform <Nav.Link href="#" className='painted'>Terms of Services</Nav.Link> and <Nav.Link href="#" className='painted'>Privacy Policies</Nav.Link>.
                                     </p>}
                                 />
@@ -91,7 +91,7 @@ const Signup: React.FC = () => {
                     </Row>
                     <Row className="justify-content-center">
                         <Col md={8} sm={10} xs={10} className='justify-content-start'>
-                            <Button variant="primary" type="submit" className='hengrown-button login'>
+                            <Button variant="primary" type="submit" className='hengrown-button signup'>
                                 Signup
                             </Button>
                         </Col>

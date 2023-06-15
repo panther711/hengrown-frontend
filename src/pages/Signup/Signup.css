@@ -24,8 +24,7 @@ img.hengrown-logo.colored {
     display: none;
 }
 
-
-input.hengrown-input.login {
+input.hengrown-input {
     box-sizing: border-box;
 
     background: #FFFFFF;
@@ -35,30 +34,33 @@ input.hengrown-input.login {
     height: 50px;
 }
 
-input.hengrown-input.login:focus {
+input.hengrown-input:focus {
     border: 2px solid #059033;
     outline: none;
     box-shadow: none;
 }
 
-button.hengrown-button.login {
+button.hengrown-button {
     width: 100%;
     margin-top: 27px;
     padding: 16px 0;
     border-radius: 5px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
-    background: #059033;
+    background: #059033!important;
     border: 1px solid #D9D9D9;
 }
 
-button.hengrown-button.login:active {
-    background: #046b26;
+button.hengrown-button:focus {
+    border: 1px solid #c2c2c2;
+    box-shadow: none;
+}
+
+button.hengrown-button:active {
+    background-color: #085a24!important;
     border: 1px solid #c2c2c2;
 }
 
-label.hengrown-label.login {
-    font-family: 'Poppins';
-    font-style: normal;
+label.hengrown-label.signup {
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
@@ -68,25 +70,21 @@ label.hengrown-label.login {
     align-self: flex-start;
 }
 
-div.hengrown-check.login {
+div.hengrown-check.signup {
     margin-top: 27px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
 }
 
-p.hengrown-check-label.login {
-    font-family: 'Poppins';
-    font-style: normal;
+p.hengrown-check-label.signup {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     display: inline;
 }
 
-p.hengrown-subtitle-label.login {
-    font-family: 'Poppins';
-    font-style: normal;
+p.hengrown-subtitle-label.signup {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -106,10 +104,12 @@ input[type='checkbox']:checked {
     background-color: #059033;
 }
 
-label.hengrown-login-header.login {
+input[type='checkbox']:focus {
+    border-color: #046b26;
+}
+
+label.hengrown-signup-header.signup {
     margin-top: 48px;
-    font-family: 'Poppins';
-    font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 48px;
@@ -140,17 +140,15 @@ a.hengrown-nav-link:hover, a.hengrown-nav-link:focus {
     color: #059033;
 }
 
-div.hengrown-signup-field {
+div.hengrown-signup-field.signup {
     padding: 0;
 }
 
-div.login-page {
+div.signup-page {
     margin: 0;
 }
 
-small.hengrown-passwd-toggle-btn.login {
-    font-family: 'Poppins';
-    font-style: normal;
+small.hengrown-passwd-toggle-btn.signup {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
