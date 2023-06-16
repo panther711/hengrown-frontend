@@ -14,8 +14,8 @@ const Profile:React.FC = () => {
         birthday: '',
         email: '',
         address: '',
-        country: '',
-        city: '',
+        //country: '',
+        //city: '',
         zipcode: '',
         phone: '',
         telegram: '',
@@ -87,18 +87,18 @@ const Profile:React.FC = () => {
                     address: value
                 })
                 break;
-            case 'country':
-                setInfo({
-                    ...info,
-                    country: value
-                })
-                break;
-            case 'city':
-                setInfo({
-                    ...info,
-                    city: value
-                })
-                break;
+            // case 'country':
+            //     setInfo({
+            //         ...info,
+            //         country: value
+            //     })
+            //     break;
+            // case 'city':
+            //     setInfo({
+            //         ...info,
+            //         city: value
+            //     })
+            //     break;
             case 'zipcode':
                 setInfo({
                     ...info,
@@ -127,7 +127,8 @@ const Profile:React.FC = () => {
         console.log(data);
     }
 
-    const {firstname, lastname, gender, birthday, email, address, country, city, zipcode, phone, telegram} = info;
+    // const {firstname, lastname, gender, birthday, email, address, country, city, zipcode, phone, telegram} = info;
+    const {firstname, lastname, gender, birthday, email, address, zipcode, phone, telegram} = info;
 
     return (
         <div>
