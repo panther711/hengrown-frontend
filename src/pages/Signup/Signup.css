@@ -1,0 +1,195 @@
+.row {
+    margin: 0!important;
+    padding: 0!important;
+}
+
+div.login-bg {
+    position: fixed;
+    height: 100vh;
+    padding: 0;
+    background-image: url('../../assets/images/background.png');
+    background-size: cover;
+    box-shadow: 6px 0 18px 0px #0004;
+}
+
+img.hengrown-logo {
+    position: fixed;
+    margin: 50px 90px;
+}
+
+
+img.hengrown-logo.colored {
+    position: relative;
+    margin: 0;
+    display: none;
+}
+
+input.hengrown-input {
+    box-sizing: border-box;
+
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 4px 10px #00000008;
+    border-radius: 5px;
+    height: 50px;
+}
+
+input.hengrown-input:focus {
+    border: 2px solid #059033;
+    outline: none;
+    box-shadow: none;
+}
+
+button.hengrown-button {
+    width: 100%;
+    margin-top: 27px;
+    padding: 16px 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    background: #059033!important;
+    border: 1px solid #D9D9D9;
+}
+
+button.hengrown-button:focus {
+    border: 1px solid #c2c2c2;
+    box-shadow: none;
+}
+
+button.hengrown-button:active {
+    background-color: #085a24!important;
+    border: 1px solid #c2c2c2;
+}
+
+label.hengrown-label.signup {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    margin-top: 27px;
+    margin-bottom: 8px;
+    align-self: flex-start;
+}
+
+div.hengrown-check.signup {
+    margin-top: 27px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+p.hengrown-check-label.signup {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    display: inline;
+}
+
+p.hengrown-subtitle-label.signup {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+input[type='checkbox'] {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    margin: 0 9px 0 0;
+    box-shadow: none!important;
+    border-color: #046b26;
+    outline: none;
+}
+
+input[type='checkbox']:checked {
+    background-color: #059033;
+}
+
+input[type='checkbox']:focus {
+    border-color: #046b26;
+}
+
+label.hengrown-signup-header.signup {
+    margin-top: 48px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+.painted {
+    color: #059033;
+    display: unset;
+}
+
+a.painted, a.painted:focus, a.painted:hover {
+    color: #059033;
+    display: unset;
+    cursor: pointer;
+}
+
+a.hengrown-nav-link {
+    color: #059033;
+    margin-top: 60px;
+    margin-left: 70px;
+}
+
+a.hengrown-nav-link:first-child {
+    margin-left: 0px;
+}
+
+a.hengrown-nav-link:hover, a.hengrown-nav-link:focus {
+    color: #059033;
+}
+
+div.hengrown-signup-field.signup {
+    padding: 0;
+}
+
+div.signup-page {
+    margin: 0;
+}
+
+small.hengrown-passwd-toggle-btn.signup {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #059033;
+    width: fit-content;
+    float: right;
+    margin: -36px 30px 0 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+button.hengrown-navbar-nav {
+    background: #D9D9D9;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: small;
+    padding: unset;
+}
+
+button.hengrown-navbar-nav:active {
+    background-color: #A9A9A9;
+}
+
+button.hengrown-navbar-nav:focus {
+    box-shadow: none;
+}
+
+@media (max-width: 767px) {
+    div.login-bg {
+        display: none;
+    }
+    nav.hengrown-navbar {
+        margin-top: 50px;
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+    div.hengrown-navbar-collapse {
+        text-align: right;
+    }
+    img.hengrown-logo.colored {
+        display: inline;
+    }
+}

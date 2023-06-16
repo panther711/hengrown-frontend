@@ -1,0 +1,67 @@
+img.vi {
+    height: 200x;
+    height: 200px;
+    margin: 27px 0px 27px 0px;
+}
+
+div.modal-header {
+    border-bottom-color: white;
+}
+
+div.modal-footer {
+    border-top-color: white;
+}
+
+button.hengrownn-closebutton {
+    align-items: right;
+}
+
+button.hengrown-button.vmodal {
+    margin-bottom: 20px;
+}
+
+p.hengrown-modal-title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 38px;
+}
+
+p.hengrown-modal-content {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+div.hengrown-responsive-modal-dialog {
+    max-width: 600px;
+}
+
+div.hengrown-responsive-modal-content {    
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    button.btn-close {
+        display: none;
+    }
+    div.modal-content {
+        width: 100%;
+    }
+    div.hengrown-responsive-modal-dialog {
+        width: 100vw;
+        max-width: none;
+        height: 100%;
+        margin: 0;
+    }
+    div.hengrown-responsive-modal-content {
+        height: 100%;
+        border: 0;
+        border-radius: 0;
+    }
+        
+    img.hengrown-logo.colored.vmodal {
+        margin: 0px;
+        margin-bottom: 60px;
+        display: flex;
+    }
+}
