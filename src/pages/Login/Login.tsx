@@ -30,8 +30,8 @@ const Login: React.FC = () => {
                     <Row className="justify-content-center">
                         <Col md={8} sm={10} xs={10}> 
                             <Navbar expand="md" className='hengrown-navbar'>
-                                <Navbar.Toggle className="hengrown-navbar-nav" />
                                 <img src={logo_c} height={40} alt='Hengrown Colored Logo' className='hengrown-logo colored'/>
+                                <Navbar.Toggle className="hengrown-navbar-nav" />
                                 <Navbar.Collapse className='hengrown-navbar'>
                                     <Nav.Link href="#" className='hengrown-nav-link'>How it works</Nav.Link>
                                     <Nav.Link href="#" className='hengrown-nav-link'>FAQ</Nav.Link>
