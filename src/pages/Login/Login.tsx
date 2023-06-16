@@ -1,96 +1,195 @@
-import React, { useState } from 'react';
-import './Login.css';
-import { Form, Button, Row, Col, Navbar, Nav } from 'react-bootstrap';
-import logo_w from './../../assets/images/logo-white.svg';
-import logo_c from './../../assets/images/logo-colorful.svg';
+import React, { useState } from "react";
+import "./Login.css";
+import { Form, Button, Row, Col, Navbar, Nav } from "react-bootstrap";
+import logo_w from "./../../assets/images/logo-white.svg";
+import logo_c from "./../../assets/images/logo-colorful.svg";
 
 const Login: React.FC = () => {
-    const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
-    const [email, setEmail] = useState('');
-    const [agree, setAgree] = useState('');
-  
-    const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      // Handle login logic here
-    }
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [agree, setAgree] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [isFormValid, setIsFormValid] = useState(false);
 
-    const handleShowPasswordClick = () => {
-        setShowPassword(!showPassword);
-    }
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Handle login logic here
+  };
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+    validatePassword(event.target.value);
+  };
 
-    return (
-        <Row>
-            <Col md={6} className='login-bg'>
-                <img src={logo_w} height={40} alt='Hengrown Logo' className='hengrown-logo' />
+  const handleShowPasswordClick = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const validatePassword = (value: string) => {
+    if (!value) {
+      setPasswordError("Password is required");
+      return false;
+    }
+    setPasswordError("");
+    return true;
+  };
+
+  const validateEmail = (value: string) => {
+    if (!value) {
+      setEmailError("Email is required");
+      return false;
+    }
+    if (!/\S+@\S+\.\S+/.test(value)) {
+      setEmailError("Invalid email format");
+      return false;
+    }
+    setEmailError("");
+    return true;
+  };
+  const changeFormValidState = () => {
+    setIsFormValid(validateEmail(email) && validatePassword(password) && agree);
+  };
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+    validateEmail(event.target.value);
+  };
+  const handleAgreeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setAgree(event.target.checked);
+    setIsFormValid(
+      validateEmail(email) && validatePassword(password) && event.target.checked
+    );
+  };
+
+  return (
+    <Row>
+      <Col md={6} className="login-bg">
+        <img
+          src={logo_w}
+          height={40}
+          alt="Hengrown Logo"
+          className="hengrown-logo"
+        />
+      </Col>
+      <Col md={6} />
+      <Col md={6} className="hengrown-signup-field">
+        <Form onSubmit={handleSubmit}>
+          <Row className="justify-content-center">
+            <Col md={8} sm={10} xs={10}>
+              <Navbar expand="md" className="hengrown-navbar">
+                <Navbar.Toggle className="hengrown-navbar-nav" />
+                <img
+                  src={logo_c}
+                  height={40}
+                  alt="Hengrown Colored Logo"
+                  className="hengrown-logo colored"
+                />
+                <Navbar.Collapse className="hengrown-navbar">
+                  <Nav.Link href="#" className="hengrown-nav-link">
+                    How it works
+                  </Nav.Link>
+                  <Nav.Link href="#" className="hengrown-nav-link">
+                    FAQ
+                  </Nav.Link>
+                </Navbar.Collapse>
+              </Navbar>
             </Col>
-            <Col md={6}/>
-            <Col md={6} className='hengrown-signup-field'>
-                <Form onSubmit={handleSubmit}>
-                    <Row className="justify-content-center">
-                        <Col md={8} sm={10} xs={10}> 
-                            <Navbar expand="md" className='hengrown-navbar'>
-                                <img src={logo_c} height={40} alt='Hengrown Colored Logo' className='hengrown-logo colored'/>
-                                <Navbar.Toggle className="hengrown-navbar-nav" />
-                                <Navbar.Collapse className='hengrown-navbar'>
-                                    <Nav.Link href="#" className='hengrown-nav-link'>How it works</Nav.Link>
-                                    <Nav.Link href="#" className='hengrown-nav-link'>FAQ</Nav.Link>
-                                </Navbar.Collapse>
-                            </Navbar>
-                        </Col>
-                    </Row>
-                    <Row className="justify-content-center">
-                        <Col md={8} sm={10} xs={10}>
-                            <Form.Label className='hengrown-login-header login'>Log <p className='painted'>In</p></Form.Label>
-                            <p className='hengrown-subtitle-label login'>
-                                Don't have an account? <Nav.Link href="signup" className='painted'>Sign up.</Nav.Link>
-                            </p>
-                        </Col>
-                    </Row>
-                    <Row className="justify-content-center">
-                        <Col md={8} sm={10} xs={10}>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label className='hengrown-label login'>Email</Form.Label>
-                                <Form.Control className='hengrown-input login' type="email" value={email} onChange={event => setEmail(event.target.value)} />
-                            </Form.Group>
-                        </Col>
-                    </Row>
-                    <Row className="justify-content-center">
-                        <Col md={8} sm={10} xs={10} className='justify-content-start'>
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Label className='hengrown-label login'>Password</Form.Label>
-                                <Form.Control className='hengrown-input login' type={showPassword ? "text" : "password"} value={password} onChange={event => setPassword(event.target.value)} />
-                                <Form.Text className='hengrown-passwd-toggle-btn login' onClick={handleShowPasswordClick}>
-                                    {showPassword? 'hide' : 'show'}
-                                </Form.Text>
-                            </Form.Group>
-                        </Col>
-                    </Row>
-                    <Row className="justify-content-center">
-                        <Col md={8} sm={10} xs={10} className='justify-content-start'>
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Check className='hengrown-check login' color='success'
-                                    type="checkbox"
-                                    value={agree}
-                                    onChange={event => setAgree(event.target.value)}
-                                    label={<p className='hengrown-check-label login'>
-                                        I agree to Platform <Nav.Link href="#" className='painted'>Terms of Services</Nav.Link> and <Nav.Link href="#" className='painted'>Privacy Policies</Nav.Link>.
-                                    </p>}
-                                />
-                            </Form.Group>
-                        </Col>
-                    </Row>
-                    <Row className="justify-content-center">
-                        <Col md={8} sm={10} xs={10} className='justify-content-start'>
-                            <Button variant="primary" type="submit" className='hengrown-button login'>
-                                Login
-                            </Button>
-                        </Col>
-                    </Row>
-                </Form>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md={8} sm={10} xs={10}>
+              <Form.Label className="hengrown-login-header login">
+                Log <p className="painted">In</p>
+              </Form.Label>
+              <p className="hengrown-subtitle-label login">
+                Don't have an account?{" "}
+                <Nav.Link href="signup" className="painted">
+                  Sign up.
+                </Nav.Link>
+              </p>
             </Col>
-        </Row>
-    )
-}
+          </Row>
+          <Row className="justify-content-center">
+            <Col md={8} sm={10} xs={10}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label className="hengrown-label signup">Email</Form.Label>
+                <Form.Control
+                  className={`hengrown-input signup ${
+                    emailError && "is-invalid"
+                  }`}
+                  type="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  onBlur={changeFormValidState}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md={8} sm={10} xs={10} className="justify-content-start">
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label className="hengrown-label signup">
+                  Password
+                </Form.Label>
+                <Form.Control
+                  className={`hengrown-input signup ${
+                    passwordError && "is-invalid"
+                  }`}
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={handlePasswordChange}
+                  onBlur={changeFormValidState}
+                />
+                <Form.Text
+                  className="hengrown-passwd-toggle-btn signup"
+                  onClick={handleShowPasswordClick}
+                >
+                  {showPassword ? "hide" : "show"}
+                </Form.Text>
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md={8} sm={10} xs={10} className="justify-content-start">
+              <Form.Group controlId="formBasicPassword">
+                <Form.Check
+                  className="hengrown-check signup"
+                  color="success"
+                  type="checkbox"
+                  checked={agree}
+                  onChange={handleAgreeChange}
+                  label={
+                    <p className="hengrown-check-label signup">
+                      I agree to Platform{" "}
+                      <Nav.Link href="#" className="painted">
+                        Terms of Services
+                      </Nav.Link>{" "}
+                      and{" "}
+                      <Nav.Link href="#" className="painted">
+                        Privacy Policies
+                      </Nav.Link>
+                      .
+                    </p>
+                  }
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md={8} sm={10} xs={10} className="justify-content-start">
+              <Button
+                variant="primary"
+                type="submit"
+                className="hengrown-button login"
+                disabled={!isFormValid}
+              >
+                Login
+              </Button>
+            </Col>
+          </Row>
+        </Form>
+      </Col>
+    </Row>
+  );
+};
 
 export default Login;

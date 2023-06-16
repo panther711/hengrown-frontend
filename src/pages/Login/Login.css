@@ -1,62 +1,87 @@
 label.hengrown-label.login {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    color: #000000;
-    margin-top: 27px;
-    margin-bottom: 8px;
-    align-self: flex-start;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  margin-top: 27px;
+  margin-bottom: 8px;
+  align-self: flex-start;
 }
 
 div.hengrown-check.login {
-    margin-top: 27px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+  margin-top: 27px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 p.hengrown-check-label.login {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    display: inline;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: inline;
 }
 
 p.hengrown-subtitle-label.login {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 label.hengrown-login-header.login {
-    margin-top: 48px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 48px;
+  margin-top: 48px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+}
+button.hengrown-button:disabled {
+  background-color: gray !important;
+  border-color: gray;
+}
+
+div.hengrown-signup-field {
+  padding: 0;
 }
 
 div.login-page {
-    margin: 0;
+  margin: 0;
 }
 
 small.hengrown-passwd-toggle-btn.login {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #059033;
-    width: fit-content;
-    float: right;
-    margin: -36px 30px 0 0;
-    cursor: pointer;
-    user-select: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #059033;
+  width: fit-content;
+  float: right;
+  margin: -36px 30px 0 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width: 767px) {
+  div.login-bg {
+    display: none;
+  }
+  nav.hengrown-navbar {
+    margin-top: 50px;
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+  div.hengrown-navbar-collapse {
+    text-align: right;
+  }
+  img.hengrown-logo.colored {
+    display: inline;
+  }
 }
