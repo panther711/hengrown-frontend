@@ -3,8 +3,11 @@ import './Signup.css';
 import { Form, Button, Row, Col, Navbar, Nav } from 'react-bootstrap';
 import logo_w from './../../assets/images/logo-white.svg';
 import logo_c from './../../assets/images/logo-colorful.svg';
+import { useModalContext } from "../../hook/useModalContext";
+import MyModal from "../../components/modals/vModal";
 
 const Signup: React.FC = () => {
+    const {setShowModal} = useModalContext();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +17,7 @@ const Signup: React.FC = () => {
     const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       // Handle login logic here
+      setShowModal(true);
     }
 
     const handleShowPasswordClick = () => {
@@ -22,6 +26,7 @@ const Signup: React.FC = () => {
 
     return (
         <Row>
+            <MyModal />
             <Col md={6} className='login-bg'>
                 <img src={logo_w} height={40} alt='Hengrown Logo' className='hengrown-logo' />
             </Col>
