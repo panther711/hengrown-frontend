@@ -43,10 +43,6 @@ label.hengrown-login-header.login {
     line-height: 48px;
 }
 
-div.hengrown-signup-field {
-    padding: 0;
-}
-
 div.login-page {
     margin: 0;
 }
@@ -63,21 +59,4 @@ small.hengrown-passwd-toggle-btn.login {
     margin: -36px 30px 0 0;
     cursor: pointer;
     user-select: none;
-}
-
-@media (max-width: 767px) {
-    div.login-bg {
-        display: none;
-    }
-    nav.hengrown-navbar {
-        margin-top: 50px;
-        flex-direction: row-reverse;
-        text-align: right;
-    }
-    div.hengrown-navbar-collapse {
-        text-align: right;
-    }
-    img.hengrown-logo.colored {
-        display: inline;
-    }
 }

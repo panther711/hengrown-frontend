@@ -35,12 +35,12 @@ const Signup: React.FC = () => {
                 <Form onSubmit={handleSubmit}>
                     <Row className="justify-content-center">
                         <Col md={8} sm={10} xs={10}> 
-                            <Navbar expand="md" className='hengrown-navbar'>
-                                <Navbar.Toggle className="hengrown-navbar-nav" />
+                            <Navbar expand="md" className='hengrown-navbar signup'>
                                 <img src={logo_c} height={40} alt='Hengrown Colored Logo' className='hengrown-logo colored'/>
-                                <Navbar.Collapse className='hengrown-navbar'>
-                                    <Nav.Link href="#" className='hengrown-nav-link'>How it works</Nav.Link>
-                                    <Nav.Link href="#" className='hengrown-nav-link'>FAQ</Nav.Link>
+                                <Navbar.Toggle className="hengrown-navbar-nav signup" />
+                                <Navbar.Collapse className='hengrown-navbar-content signup'>
+                                    <Nav.Link href="#" className='hengrown-nav-link signup'>How it works</Nav.Link>
+                                    <Nav.Link href="#" className='hengrown-nav-link signup'>FAQ</Nav.Link>
                                 </Navbar.Collapse>
                             </Navbar>
                         </Col>
@@ -49,7 +49,7 @@ const Signup: React.FC = () => {
                         <Col md={8} sm={10} xs={10}>
                             <Form.Label className='hengrown-signup-header signup'>Sign <p className='painted'>Up</p></Form.Label>
                             <p className='hengrown-subtitle-label signup'>
-                                Already have an account? <Nav.Link href="#" className='painted'>Log in.</Nav.Link>
+                                Already have an account? <Nav.Link href="login" className='painted'>Log in.</Nav.Link>
                             </p>
                         </Col>
                     </Row>
