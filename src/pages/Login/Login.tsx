@@ -8,7 +8,7 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
-  const [agree, setAgree] = useState(false);
+  const [rememberme, setRememberMe] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
@@ -19,7 +19,7 @@ const Login: React.FC = () => {
   };
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
-    validatePassword(event.target.value);
+    setIsFormValid(validateEmail(email) && validatePassword(event.target.value));
   };
 
   const handleShowPasswordClick = () => {
@@ -47,18 +47,12 @@ const Login: React.FC = () => {
     setEmailError("");
     return true;
   };
-  const changeFormValidState = () => {
-    setIsFormValid(validateEmail(email) && validatePassword(password) && agree);
-  };
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
-    validateEmail(event.target.value);
+    setIsFormValid(validateEmail(event.target.value) && validatePassword(password));
   };
   const handleAgreeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAgree(event.target.checked);
-    setIsFormValid(
-      validateEmail(email) && validatePassword(password) && event.target.checked
-    );
+    setRememberMe(event.target.checked);
   };
 
   return (
@@ -119,7 +113,6 @@ const Login: React.FC = () => {
                   type="email"
                   value={email}
                   onChange={handleEmailChange}
-                  onBlur={changeFormValidState}
                 />
               </Form.Group>
             </Col>
@@ -137,7 +130,6 @@ const Login: React.FC = () => {
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={handlePasswordChange}
-                  onBlur={changeFormValidState}
                 />
                 <Form.Text
                   className="hengrown-passwd-toggle-btn signup"
@@ -155,19 +147,11 @@ const Login: React.FC = () => {
                   className="hengrown-check signup"
                   color="success"
                   type="checkbox"
-                  checked={agree}
+                  checked={rememberme}
                   onChange={handleAgreeChange}
                   label={
                     <p className="hengrown-check-label signup">
-                      I agree to Platform{" "}
-                      <Nav.Link href="#" className="painted">
-                        Terms of Services
-                      </Nav.Link>{" "}
-                      and{" "}
-                      <Nav.Link href="#" className="painted">
-                        Privacy Policies
-                      </Nav.Link>
-                      .
+                      Remember me
                     </p>
                   }
                 />

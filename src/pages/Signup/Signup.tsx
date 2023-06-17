@@ -61,35 +61,34 @@ const Signup: React.FC = () => {
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
-    validateUsername(event.target.value);
-  };
-  const changeFormValidState = () => {
-    setIsFormValid(
-      validateUsername(username) &&
-        validateEmail(email) &&
-        validatePassword(password) &&
-        agree
-    );
+    setIsFormValid(validateUsername(event.target.value) &&
+      validateEmail(email) &&
+      validatePassword(password) &&
+      agree);
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
-    validatePassword(event.target.value);
+    setIsFormValid(validateUsername(username) &&
+      validateEmail(email) &&
+      validatePassword(event.target.value) &&
+      agree);
   };
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
-    validateEmail(event.target.value);
+    setIsFormValid(validateUsername(username) &&
+      validateEmail(event.target.value) &&
+      validatePassword(password) &&
+      agree);
   };
 
   const handleAgreeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAgree(event.target.checked);
-    setIsFormValid(
-      validateUsername(username) &&
-        validateEmail(email) &&
-        validatePassword(password) &&
-        event.target.checked
-    );
+    setIsFormValid(validateUsername(username) &&
+      validateEmail(email) &&
+      validatePassword(password) &&
+      event.target.checked);
   };
 
   return (
@@ -153,7 +152,6 @@ const Signup: React.FC = () => {
                   type="text"
                   value={username}
                   onChange={handleUsernameChange}
-                  onBlur={changeFormValidState}
                 />
               </Form.Group>
             </Col>
@@ -169,7 +167,6 @@ const Signup: React.FC = () => {
                   type="email"
                   value={email}
                   onChange={handleEmailChange}
-                  onBlur={changeFormValidState}
                 />
               </Form.Group>
             </Col>
@@ -187,7 +184,6 @@ const Signup: React.FC = () => {
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={handlePasswordChange}
-                  onBlur={changeFormValidState}
                 />
                 <Form.Text
                   className="hengrown-passwd-toggle-btn signup"
@@ -232,7 +228,7 @@ const Signup: React.FC = () => {
                 className="hengrown-button signup"
                 disabled={!isFormValid}
               >
-                Signup
+                Create my account
               </Button>
             </Col>
           </Row>
