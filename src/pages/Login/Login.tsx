@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Form, Button, Row, Col, Navbar, Nav } from "react-bootstrap";
+import { Form, Button, Row, Col, Navbar, Nav, Toast } from "react-bootstrap";
 import logo_w from "./../../assets/images/logo-white.svg";
 import logo_c from "./../../assets/images/logo-colorful.svg";
+import axios from "axios";
+import {Icon} from '@iconify/react';
+import { apiURL } from "../../constants";
 
 const Login: React.FC = () => {
   const [password, setPassword] = useState("");
+  const [danger, setDanger] = useState(false);
+  const [dangerMessage, setDangerMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [rememberme, setRememberMe] = useState(false);
@@ -13,9 +18,20 @@ const Login: React.FC = () => {
   const [passwordError, setPasswordError] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Handle login logic here
+    await axios.post(`${apiURL}users/login`,{
+      email,
+      password
+    }).then(() => {
+      // setShowModal(true);
+    }).catch(err => {
+      // console.log(err);
+      let msg = err.response.data.message||err.message;
+      setDangerMessage(msg);
+      setDanger(true)
+    });
   };
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
@@ -91,6 +107,12 @@ const Login: React.FC = () => {
           </Row>
           <Row className="justify-content-center">
             <Col md={8} sm={10} xs={10}>
+              <Toast onClose={() => setDanger(false)} show={danger} className="hengrown-toast-signup" bg="danger" delay={4000} autohide>
+                <Toast.Body>
+                  <Icon icon="solar:danger-triangle-linear" className="hengrown-danger-icon"></Icon>
+                  {dangerMessage}
+                </Toast.Body>
+              </Toast>
               <Form.Label className="hengrown-login-header login">
                 Log <p className="painted">In</p>
               </Form.Label>

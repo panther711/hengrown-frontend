@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import "./Signup.css";
-import { Form, Button, Row, Col, Navbar, Nav } from "react-bootstrap";
+import { Form, Button, Row, Col, Navbar, Nav, Toast } from "react-bootstrap";
 import logo_w from "./../../assets/images/logo-white.svg";
 import logo_c from "./../../assets/images/logo-colorful.svg";
 import { useModalContext } from "../../hook/useModalContext";
 import MyModal from "../../components/modals/vModal";
+import axios from 'axios';
+import { Icon } from '@iconify/react';
+import { apiURL } from "../../constants";
 
 const Signup: React.FC = () => {
   const { setShowModal } = useModalContext();
+  const [danger, setDanger] = useState(false);
+  const [dangerMessage, setDangerMessage] = useState("");
   const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [password, setPassword] = useState("");
@@ -18,10 +23,25 @@ const Signup: React.FC = () => {
   const [agree, setAgree] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Handle login logic here
-    setShowModal(true);
+    await axios.post(`${apiURL}users/signup`,{
+      name: username,
+      email,
+      password,
+      passwordConfirm: password
+    }).then((response) => {
+      console.log(response.data)
+      setShowModal(true);
+    }).catch(err => {
+      // console.log(err);
+      let msg = err.response.data.message||err.message;
+      if ( msg.substr(0,6) === 'E11000' || msg.substr(0,9) === 'Duplicate' ) msg = "The email you enter has been used. Please Log in!";
+      setDangerMessage(msg);
+      setDanger(true)
+    });
+      
   };
 
   const handleShowPasswordClick = () => {
@@ -128,6 +148,12 @@ const Signup: React.FC = () => {
           </Row>
           <Row className="justify-content-center">
             <Col md={8} sm={10} xs={10}>
+              <Toast onClose={() => setDanger(false)} show={danger} className="hengrown-toast-signup" bg="danger" delay={4000} autohide>
+                <Toast.Body>
+                  <Icon icon="solar:danger-triangle-linear" className="hengrown-danger-icon"></Icon>
+                  {dangerMessage}
+                </Toast.Body>
+              </Toast>
               <Form.Label className="hengrown-signup-header signup">
                 Sign <p className="painted">Up</p>
               </Form.Label>
