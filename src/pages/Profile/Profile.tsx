@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Profile.css';
 import { Navbar, Nav, Row, Col, Card, Button, Form } from "react-bootstrap";
 import logo_c from '../../assets/images/logo-colorful.svg';
@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 const Profile:React.FC = () => {
     const [state, setState] = useState({file: '', imagePreviewUrl: ''});
+    const [boxes1, setBoxes1] = useState<number []>([1]);
+    const [boxes2, setBoxes2] = useState<number []>([]);
     const [info, setInfo] = useState({
         firstname: '',
         lastname: '',
@@ -127,46 +129,81 @@ const Profile:React.FC = () => {
         console.log(data);
     }
 
+    const ProfilePicture = () => (
+        <>
+            <Row>
+                <div className='hengrown-col-photo'>
+                    <ImgUpload onChange={photoUpload} src={state.imagePreviewUrl}/>
+                </div>
+                <div className='col-for-photo'>
+                    <p style={{display: 'unset'}}>We recommend you to use</p>&nbsp; <p className='responsive-hide-phone'>clear frontal face for your profile picture. Be sure to use&nbsp; </p><p style={{display: 'unset'}}>a photo that clearly shows your face</p> <p className='responsive-hide-phone'>and doesn’t include any personal or sensitive information.</p><br />
+                    {boxes1.map(box => (
+                        <Button variant="primary" type="submit" className='hengrown-button profile'>
+                            Upload photo
+                        </Button>
+                    ))}
+                </div>
+            </Row>
+            <Row>
+                {boxes2.map(box => (
+                    <Button variant="primary" type="submit" className='hengrown-button profile'>
+                        Upload photo
+                    </Button>
+                ))}
+            </Row>
+        </>
+    )
+
     // const {firstname, lastname, gender, birthday, email, address, country, city, zipcode, phone, telegram} = info;
     const {firstname, lastname, gender, birthday, email, address, zipcode, phone, telegram} = info;
 
+    useEffect(() => {
+        function handleResize() {
+          const width = window.innerWidth;
+          if (width <= 768) {
+            setBoxes1([]);
+            setBoxes2([1]);
+          } else {
+            setBoxes1([1]);
+            setBoxes2([]);
+          }
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
+
     return (
         <div>
-            <Navbar className='hengrown-navbar profile'>
+            <Navbar className='hengrown-navbar-profile fixed-top' >
                 <Navbar.Brand href='#'>
                     <img src={logo_c} height={40} alt='Hengrown Colored Logo' className='hengrown-logo-profile'/>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav profile" />
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className='hengrown-navbar-content profile'>
                     <Nav.Link href="#" className='hengrown-nav-link profile'>How it works</Nav.Link>
                     <Nav.Link href="#" className='hengrown-nav-link profile'>FAQ</Nav.Link>
                 </Navbar.Collapse>
             </Navbar>
+            <div className='hengrown-profile-responsive-show'>
+                <div className='hengrown-account-setup'>Account Setup</div>
+                <Button className='hengrown-button hengrown-profile-responsive-show'>Skip</Button>
+            </div>
             <div className='hengrown-profile'>
                 <Row className='hengrown-profile-content'>
                     <Col md="3" className='hengrown-profile-instruction'>
-                        <h3>Setting up your account</h3>
-                        <p>Complete all the information below to continue. You may skip this part, but you will need to complete all the fields below to start investing.</p>
+                        <h3 className='responsive-hide'>Setting up your account</h3>
+                        <p style={{marginTop: '10px'}}>Complete all the information below to continue. You may skip this part, but you will need to complete all the fields below to start investing.</p>
                     </Col>
                     <Col md="9" className='hengrown-profile-setup'>
-                        <h3>Account Setup</h3>
-                        <p className='painted'>
+                        <h3 className='responsive-hide'>Account Setup</h3>
+                        <p className='painted responsive-hide'>
                             <Icon icon="fluent-emoji-high-contrast:information" className='hengrown-profile-icon' />Skip this step
                         </p>
                         <Card className='hengrown-card'>
                             <Card.Header className='hengrown-card-header'>Profile Picture</Card.Header>
                             <Card.Body className='hengrown-card-body'>
-                                <Row>
-                                    <Col md='auto' className='hengrown-col'>
-                                        <ImgUpload onChange={photoUpload} src={state.imagePreviewUrl}/>
-                                    </Col>
-                                    <Col className='hengrown-col'>
-                                        <p>We recommend you to use clear frontal face for your profile picture. Be sure to use a photo that clearly shows your face and doesn’t include any personal or sensitive information.</p>
-                                        <Button variant="primary" type="submit" className='hengrown-button profile'>
-                                            Upload photo
-                                        </Button>
-                                    </Col>
-                                </Row>
+                                <ProfilePicture />
                             </Card.Body>
                         </Card>
                         <Card className='hengrown-card'>
@@ -292,12 +329,12 @@ const Profile:React.FC = () => {
                                     <Row>
                                         <Col md={3} className='d-flex hengrown-label profile'/>
                                         <Col md={9}>
-                                            <p style={{marginTop: 10, marginBottom: 10}}>
-                                                You will need to verify your phone number. Click to&nbsp;
+                                            <p className='responsive-hide-phone'>
+                                                You will need to verify your phone number. Click to&nbsp;</p>
                                                 <Link to={phone ? `/phone-verify?phone=${phone}` : '#'} className='painted verify-link'>
-                                                    <p className='responsive-upper'>v</p>erify
+                                                    <p className='responsive-upper'>verify</p>
                                                 </Link>
-                                                &nbsp;my phone number.</p>
+                                                <p className='responsive-upper'>&nbsp;my phone number.</p>
                                         </Col>
                                     </Row>
                                 </Form.Group>

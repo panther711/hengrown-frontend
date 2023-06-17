@@ -1,3 +1,12 @@
+a.painted.verify-link {
+    text-decoration: none;
+}
+
+div.col-for-photo {
+    width: calc(100% - 187px)!important;
+    margin-left: 30px;
+}
+
 img.hengrown-logo-profile {
     position: relative;
     margin: 0;
@@ -5,13 +14,25 @@ img.hengrown-logo-profile {
     background: #FFF;
 }
 
+button.hengrown-profile-responsive-show, button.hengrown-profile-responsive-show:focus {
+    border-color: white;
+    margin-top: 0px;
+    width: 30%;
+}
+
 a.hengrown-nav-link.profile {
     margin-top: 0px;
 }
 
-nav.hengrown-navbar.profile {
+nav.hengrown-navbar-profile {
+    height: 150px;
+    background-color: white;
     padding: 48px 86px 38px;
     box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.25);
+}
+
+div.hengrown-account-setup {
+    padding: 15px 0px 0px 0px;
 }
 
 div.hengrown-navbar-content.profile {
@@ -19,7 +40,19 @@ div.hengrown-navbar-content.profile {
 }
 
 div.hengrown-profile {
-    padding: 86px 60px;
+    padding: 180px 60px 10px;
+}
+
+div.hengrown-profile-responsive-show {
+    display: none;
+    background-color: #059033;
+    color: white;
+    margin-top: 150px;
+    padding: 40px 40px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    justify-content: space-between;
 }
 
 div.hengrown-profile h3 {
@@ -32,13 +65,20 @@ div.hengrown-profile h3 {
 }
 
 div.hengrown-profile p {
-    display: block;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 24px;
+}
+
+div.hengrown-profile p.responsive-upper {
+    display: unset;
+}
+
+p.responsive-hide-phone {
+    display: unset;
 }
 
 div.hengrown-profile-instruction {
@@ -102,6 +142,14 @@ input[type="file"].hengrown-img-upload {
     margin-bottom: 25px;
 }
 
+button.responsive-navbar-nav.profile {
+    display: block;
+    background: #d9d9d9;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+}
+
 .img-wrap.hengrown-img-upload{
     position: relative;
     background: #fff;
@@ -132,13 +180,41 @@ label.hengrown-img-upload{
 button.hengrown-button.profile {
     font-weight: 700;
     width: fit-content;
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-top: 15px;
 }
 
-col.hengrown-col {
+div.hengrown-col-photo {
     margin: 0!important;
     padding: 0!important;
+    width: 157px;
+    height: 157px;
+}
+
+select.hengrown-input.profile {
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0px 4px 10px #00000008;
+    border-radius: 5px;
+    height: 50px;
+}
+
+select.hengrown-input.profile:focus {
+    border: 2px solid #059033;
+}
+
+textarea.hengrown-input.profile {
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0px 4px 10px #00000008;
+    border-radius: 5px;
+}
+
+textarea.hengrown-input.profile:focus {
+    border: 2px solid #059033;
 }
 
 div.hengrown-label.profile {
@@ -154,6 +230,28 @@ div.hengrown-formgroup.profile {
     margin-bottom: 10px;
 }
 @media (max-width: 767px) {
+    div.hengrown-profile {
+        padding: 10px 30px;
+    }
+    div.hengrown-profile-responsive-show {
+        display: flex;
+    }
+    div.col-for-photo {
+        width: calc(100% - 154px)!important;
+    }
+    div.img-wrap.img-upload.hengrown-img-upload, div.hengrown-col-photo {
+        width: 124px;
+        height: 124px;
+    }
+    .responsive-hide {
+        display: none;
+    }
+    nav.hengrown-navbar-profile {
+        margin-top: 0px;
+    }
+    p.responsive-hide-phone {
+        display: none;
+    }
     up.painted.verify-link .responsive-upper {
         display: inline;
         text-transform: uppercase;
