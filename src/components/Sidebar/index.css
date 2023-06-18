@@ -1,0 +1,113 @@
+div.hengrown-sidebar {
+    background: #FFFFFF;
+    min-width: 373px;
+    padding: 0 32px;
+    z-index: 12;
+    height: calc(100vh - 66px);
+}
+
+div.hengrown-sidebar-header {
+    margin: 14px 0;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+div.hengrown-profile-box .avatar {
+    width: 50px;
+    height: 50px;
+    margin: 0 16px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+div.hengrown-profile-box .avatar img {
+    width: 50px;
+}
+
+div.hengrown-profile-box {
+    display: flex;
+}
+
+div.hengrown-profile-box h2 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+div.hengrown-profile-box h6.address {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+div.hengrown-profile-box h6.address .address-marker {
+    margin-bottom: 4px;
+}
+
+div.hengrown-sidebar-header button.hengrown-button {
+    border: 1px dashed #059033;
+    background: rgba(5, 144, 51, 0.1)!important;
+    color: black;
+}
+
+div.hengrown-sidebar-header button.hengrown-button:hover {
+    background: rgba(5, 144, 51, 0.2)!important;
+}
+
+div.hengrown-sidebar-header button.hengrown-button:active {
+    border: 1px solid #059033;
+    background: rgba(5, 144, 51)!important;
+}
+
+li.hengrown-sidebar-item {
+    padding: 12px 16px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0;
+}
+
+div.hengrown-sidebar-drawer-background {
+    
+}
+
+div.hengrown-sidebar-toggle {
+    display: none;
+}
+
+@media (max-width: 850px) {
+    div.hengrown-sidebar {
+        position: absolute;
+        height: 100vh;
+        right: 0;
+        z-index: 1024;
+    }
+    div.hengrown-sidebar.toggled {
+        min-width: 0;
+        width: 0;
+        padding: 0;
+    }
+    div.hengrown-sidebar-toggle {
+        display: block;
+        position: fixed;
+        background: #D9D9D9;
+        padding: 10;
+        border-radius: 5px;
+        width: 40px;
+        height: 40px;
+        top: 36px;
+        right: 36px;
+    }
+    div.head-div {
+        margin: 6px;
+        padding: 0!important;
+        -webkit-box-pack: center!important;
+        justify-content: center!important;
+    }
+}
