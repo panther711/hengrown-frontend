@@ -1,0 +1,148 @@
+div.hengrown-plantcard {
+    margin-right: 36px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border: none;
+    box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.05);
+}
+
+div.hengrown-plantcard-imgholder {
+    position: relative;
+    width: fit-content;
+    padding: 0;
+    margin: 0;
+}
+
+img.hengrown-plantcard-card-img {
+    margin-top: 20px;
+    max-width: 180px;
+}
+
+div.hengrown-plantcard-title h3, div.hengrown-plantcard-summary h3 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0;
+}
+
+div.hengrown-plantcard-title h6, div.hengrown-plantcard-info h6, div.hengrown-plantcard-summary h6 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+div.hengrown-plantcard-summary {
+    text-align: end;
+}
+
+div.hengrown-plantcard-summary .painted {
+    color: #059033;
+}
+
+div.hengrown-plantcard-title.painted h6 {
+    color: #059033;
+}
+
+div.hengrown-plantcard-info {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+div.hengrown-plantcard-info h4 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0;
+}
+
+div.hengrown-plantcard-card-content {
+    margin-left: -36px;
+    padding: 20px 0 0 0;
+    width: calc(100% - 180px);
+}
+
+div.hengrown-milestones {
+    padding: 30px 0;
+}
+
+@media (max-width: 1190px) {
+    div.hengrown-plantcard-info {
+        display: flex;
+    }
+    div.hengrown-info-row {
+        flex-direction: column;
+        width: 50%;
+    }
+    div.hengrown-infobox {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1145px) {
+    div.hengrown-plantcard-info {
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 19px;
+    }
+    div.hengrown-plantcard-summary {
+        padding-top: 16px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+    div.hengrown-plantcard-card-content {
+        margin: auto;
+        padding: 0 24px;
+        width: 100%;
+    }
+    div.hengrown-plantcard-card-content>.row {
+        flex-direction: column;
+    }
+    div.hengrown-plantcard-card-content>.row>div {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    div.hengrown-info-row:last-child {
+        text-align: end;
+    }
+    div.hengrown-plantcard-title, div.hengrown-plantcard-info, div.hengrown-plantcard-summary {
+        width: 100%;
+    }
+    div.hengrown-plantcard-title {
+        text-align: center;
+        margin-top: 27px;
+        margin-bottom: 42px;
+    }
+    div.hengrown-plantcard-imgholder {
+        position: absolute;
+        margin: auto;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        overflow: hidden;
+        top: 18px;
+        left: 19px;
+    }
+    div.hengrown-plantcard-imgholder>img {
+        position: absolute;
+        margin: auto;
+        width: 70px;
+        height: 70px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    div.hengrown-infobox {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
