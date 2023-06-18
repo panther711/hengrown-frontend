@@ -175,11 +175,11 @@ const Profile:React.FC = () => {
 
     return (
         <div>
-            <Navbar className='hengrown-navbar-profile fixed-top' >
+            <Navbar className='hengrown-navbar-profile fixed-top' expand='md'>
                 <Navbar.Brand href='#'>
                     <img src={logo_c} height={40} alt='Hengrown Colored Logo' className='hengrown-logo-profile'/>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Toggle className="hengrown-navbar-nav profile" />
                 <Navbar.Collapse className='hengrown-navbar-content profile'>
                     <Nav.Link href="#" className='hengrown-nav-link profile'>How it works</Nav.Link>
                     <Nav.Link href="#" className='hengrown-nav-link profile'>FAQ</Nav.Link>

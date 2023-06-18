@@ -158,8 +158,9 @@ a.hengrown-nav-link:focus {
   color: #059033;
 }
 
-div.hengrown-signup-field.signup {
+div.hengrown-signup-field {
   padding: 0;
+  padding-bottom: 60px;
 }
 
 div.signup-page {

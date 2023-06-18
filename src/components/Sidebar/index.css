@@ -64,7 +64,7 @@ div.hengrown-sidebar-header button.hengrown-button:active {
 }
 
 li.hengrown-sidebar-item {
-    padding: 12px 16px;
+    padding: 12px 12px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -73,8 +73,16 @@ li.hengrown-sidebar-item {
     margin: 0;
 }
 
+li.hengrown-sidebar-item:hover {
+    background-color: #05903340;
+}
+
 div.hengrown-sidebar-drawer-background {
-    
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #fff0;
 }
 
 div.hengrown-sidebar-toggle {

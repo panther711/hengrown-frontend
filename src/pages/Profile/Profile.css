@@ -36,6 +36,7 @@ div.hengrown-account-setup {
 }
 
 div.hengrown-navbar-content.profile {
+    text-align: right;
     justify-content: flex-end;
 }
 
@@ -142,14 +143,6 @@ input[type="file"].hengrown-img-upload {
     margin-bottom: 25px;
 }
 
-button.responsive-navbar-nav.profile {
-    display: block;
-    background: #d9d9d9;
-    border-radius: 5px;
-    width: 40px;
-    height: 40px;
-}
-
 .img-wrap.hengrown-img-upload{
     position: relative;
     background: #fff;
@@ -248,7 +241,12 @@ div.hengrown-formgroup.profile {
     }
     nav.hengrown-navbar-profile {
         margin-top: 0px;
+        padding-right: 40px;
+        padding-left: 40px;
+        min-height: 150px;
+        height: unset;
     }
+    
     p.responsive-hide-phone {
         display: none;
     }
@@ -258,5 +256,18 @@ div.hengrown-formgroup.profile {
     }
     div.hengrown-label.profile {
         justify-content: start;
+    }
+    a.hengrown-nav-link.profile {
+        margin-top: 30px;
+    }
+    button.hengrown-navbar-nav.profile {
+        position: absolute;
+        display: block;
+        background: #d9d9d9;
+        border-radius: 5px;
+        width: 40px;
+        height: 40px;
+        right: 40px;
+        top: 60px;
     }
 }
