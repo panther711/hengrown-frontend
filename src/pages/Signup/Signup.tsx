@@ -31,10 +31,10 @@ const Signup: React.FC = () => {
       email,
       password,
       passwordConfirm: password
-    }).then((response) => {
+    }).then((response:any) => {
       console.log(response.data)
       setShowModal(true);
-    }).catch(err => {
+    }).catch((err:any) => {
       // console.log(err);
       let msg = err.response.data.message||err.message;
       if ( msg.substr(0,6) === 'E11000' || msg.substr(0,9) === 'Duplicate' ) msg = "The email you enter has been used. Please Log in!";
@@ -135,7 +135,7 @@ const Signup: React.FC = () => {
                   alt="Hengrown Colored Logo"
                   className="hengrown-logo colored"
                 />
-                <Navbar.Collapse className="hengrown-navbar">
+                <Navbar.Collapse className="hengrown-navbar-content">
                   <Nav.Link href="#" className="hengrown-nav-link">
                     How it works
                   </Nav.Link>

@@ -47,10 +47,6 @@ button.hengrown-button:disabled {
   border-color: gray;
 }
 
-div.hengrown-signup-field {
-  padding: 0;
-}
-
 div.login-page {
   margin: 0;
 }
