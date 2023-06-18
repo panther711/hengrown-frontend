@@ -6,8 +6,10 @@ import logo_c from "./../../assets/images/logo-colorful.svg";
 import axios from "axios";
 import {Icon} from '@iconify/react';
 import { apiURL } from "../../constants";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [danger, setDanger] = useState(false);
   const [dangerMessage, setDangerMessage] = useState("");
@@ -24,11 +26,16 @@ const Login: React.FC = () => {
     await axios.post(`${apiURL}users/login`,{
       email,
       password
-    }).then(() => {
+    }).then(response => {
+      console.log(response.data);
+      localStorage.setItem('token', response.data.token);
+      navigate('/profile');
       // setShowModal(true);
     }).catch(err => {
-      // console.log(err);
-      let msg = err.response.data.message||err.message;
+      console.log(err);
+      let msg = '';
+      if (err.response) msg = err.response.data.message;
+      else msg = err.message;
       setDangerMessage(msg);
       setDanger(true)
     });
